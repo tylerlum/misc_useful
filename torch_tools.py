@@ -229,39 +229,42 @@ batch_size = 10
 mlp_input = torch.randn(batch_size, mlp_num_inputs).to(device())
 mlp_output = mlp_model(mlp_input)
 
-print(f"mlp_input.shape = {mlp_input.shape}, mlp_output.shape = {mlp_output.shape}")
+print(
+    f"mlp_input.shape = {mlp_input.shape}, mlp_output.shape = {mlp_output.shape}")
 # -
 
 cnn_2d_input_shape = (3, 128, 128)
 cnn_2d_model = CNN2d(input_shape=cnn_2d_input_shape,
-                  conv_channels=[8, 16, 32, 64],
-                  hidden_layers=[128, 64],
-                  output_dim=4,
-                  activation=nn.ReLU,
-                  output_activation=nn.Identity).to(device())
+                     conv_channels=[8, 16, 32, 64],
+                     hidden_layers=[128, 64],
+                     output_dim=4,
+                     activation=nn.ReLU,
+                     output_activation=nn.Identity).to(device())
 cnn_2d_model
 
 # +
 cnn_2d_input = torch.randn(batch_size, *cnn_2d_input_shape).to(device())
 cnn_2d_output = cnn_2d_model(cnn_2d_input)
 
-print(f"cnn_2d_input.shape = {cnn_2d_input.shape}, cnn_2d_output.shape = {cnn_2d_output.shape}")
+print(
+    f"cnn_2d_input.shape = {cnn_2d_input.shape}, cnn_2d_output.shape = {cnn_2d_output.shape}")
 # -
 
 cnn_3d_input_shape = (3, 64, 64, 64)
 cnn_3d_model = CNN3d(input_shape=cnn_3d_input_shape,
-                  conv_channels=[8, 16, 32, 64],
-                  hidden_layers=[128, 64],
-                  output_dim=4,
-                  activation=nn.ReLU,
-                  output_activation=nn.Identity).to(device())
+                     conv_channels=[8, 16, 32, 64],
+                     hidden_layers=[128, 64],
+                     output_dim=4,
+                     activation=nn.ReLU,
+                     output_activation=nn.Identity).to(device())
 cnn_3d_model
 
 # +
 cnn_3d_input = torch.randn(batch_size, *cnn_3d_input_shape).to(device())
 cnn_3d_output = cnn_3d_model(cnn_3d_input)
 
-print(f"cnn_3d_input.shape = {cnn_3d_input.shape}, cnn_3d_output.shape = {cnn_3d_output.shape}")
+print(
+    f"cnn_3d_input.shape = {cnn_3d_input.shape}, cnn_3d_output.shape = {cnn_3d_output.shape}")
 # -
 
 # ## Model Information
@@ -431,7 +434,8 @@ print(f"params = {params}")
 # +
 # Create dataset
 X = torch.randn(PARAMS.N_DATAPTS, PARAMS.N_FEATURES).to(device())
-y = torch.randint(low=0, high=PARAMS.N_CLASSES, size=(PARAMS.N_DATAPTS,)).to(device())
+y = torch.randint(low=0, high=PARAMS.N_CLASSES,
+                  size=(PARAMS.N_DATAPTS,)).to(device())
 
 dataset = []
 for i in range(PARAMS.N_DATAPTS):

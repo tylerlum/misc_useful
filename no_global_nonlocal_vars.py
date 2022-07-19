@@ -67,6 +67,8 @@ def no_global_nonlocal_vars(f):
 import numpy as np
 
 # BEST
+
+
 @no_global_nonlocal_vars
 def test_no_global_nonlocal_vars_GOOD(x, repeat):
     return np.array([x] * repeat)
